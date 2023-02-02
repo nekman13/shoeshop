@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+
+{% block title %} <title xmlns="http://www.w3.org/1999/html">{{ title }}</title> {% endblock %}
+
+
+
+{% block filter %}
+    {% if flag == 'search' or flag == 'filter_brand' or flag == 'filter_gender' %}
+        {{ pass }}
+    {% else %}
+        {% include 'inc/_filter2.html' %}
+    {% endif %}
+
+{% endblock %}
+
+
+{% block content %}
+    <div class="">
+        {% if flag == 'filter' and shoes.count != 0 %} {# Если мы отображаем результат фильтрации #}
+            <p>По вашему запросу найдено: <b>{{ shoes.count }}</b></p>
+        {% elif flag == 'filter' and shoes.count == 0 %}
+            <p><h3 class="text-secondary mt-5 "> По вашему запросу ничего не найдено</h3></p>
+        {% endif %}
+
+
+        {% if  flag == 'list' %} {# Если мы отображаем весь каталог #}
+            <p>Всего пар: <b>{{ all_pair.count }}</b></p>
+        {% endif %}
+
+        {% if flag == 'search' and shoes.count == 0 %} {# Если мы отображаем результат поиска #}
+            <p><h3 class="text-secondary mt-5 "> По вашему запросу ничего не найдено</h3></p>
+            <p class="text-secondary"> Увы, пока что поиск поддерживается только по одному критерию товара(бренд,
+                модель,
+                расцветка)!!!</p>
+        {% elif  flag == 'search' and shoes.count > 0 %}
+            <p>По вашему запросу найдено: <b>{{ shoes.count }}</b></p>
+        {% endif %}
+
+        {% if flag == 'filter_brand'  and shoes.count == 0 %} {# Если мы отображаем пары определенного бренда #}
+            <h5>Пары выбранного бренда на данный момент отсутствуют на складе..</h5>
+        {% elif flag == 'filter_brand'  and shoes.count != 0 %}
+            <p> Все пары бренда: {{ shoes_brand }}</p>
+        {% endif %}
+
+        {% if flag == 'filter_gender' and shoes.count == 0 %} {# Если отображаем пары определенного пола #}
+            <h5>Выбранные пары на данный момент отсутствуют на складе..</h5>
+        {% elif flag == 'filter_gender' and shoes.count != 0 %}
+            <h4>Категория: {{ gender }}</h4>
+        {% endif %}
+
+
+        {#            <!-- Example single danger button -->#}
+        {#        <div class="btn-group">#}
+        {#            <button type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown"#}
+        {#                    aria-expanded="false">#}
+        {#                Сортировка#}
+        {#            </button>#}
+        {#            <ul class="dropdown-menu dropdown-menu-dark">#}
+        {#                <li><a class="dropdown-item" href="#">По возрастанию цены ↑</a></li>#}
+        {#                <li><a class="dropdown-item" href="#">По убыванию цены ↓</a></li>#}
+        {#                <li><a class="dropdown-item" href="#">Сначала старые товары</a></li>#}
+        {#                <li><a class="dropdown-item" href="#">Сначала новые товары</a></li>#}
+        {#            </ul>#}
+        {#        </div>#}
+    </div>
+
+
+    {% for item in shoes %}
+        <div class="col-6">
+            <div class="card-body card mt-2 mb-4">
+                {% if item.photo %}
+                    <a href="{% url 'shoes:one_pair_view' item.pk %}">
+                        <img src="{{ item.photo.url }}" , width="350">
+                    </a>
+                {% else %}
+                    <img src="https://avatars.mds.yandex.net/i?id=bcb66a4b38e66b9bed06d8af2c2e6e41-5235777-images-thumbs&n=13"
+                         , width="300">
+                {% endif %}
+                <h4><a class="text-dark text-decoration-none"
+                       href="{% url 'shoes:one_pair_view' item.pk %}">{{ item.brand }}</a></h4>
+                <div class="media-body">
+                    <p class="card-text">
+                        <a class="text-dark text-decoration-none"
+                           href="{% url 'shoes:one_pair_view' item.pk %}">{{ item.model }} {{ item.color }}
+                            ({{ item.realise_date }})</a>
+                        {% if item.is_special %}<b class="text-primary">Эксклюзивная пара!</b>
+                        {% endif %}
+                    </p>
+                    <a class="text-decoration-none text-black" href="{% url 'shoes:one_pair_view' item.pk %}">
+                        <h5>{{ item.price }} ₽</h5></a>
+                    <a href="{% url 'shoes:one_pair_view' item.pk %}"
+                       class="btn btn-dark text-decoration-none">Купить
+                    </a>
+                    <a href="{% url 'shoes:basket_add' item.pk %}"
+                       class="btn btn-outline-dark text-decoration-none">Добавить в корзину
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+{% endblock %}
+

@@ -1,0 +1,6 @@
+
+    <ul class="dropdown-menu dropdown-menu-dark">
+        {% for item in categories_brand %}
+        <li><a class="dropdown-item" href="{% url 'shoes:category_brand' item.pk %}">{{item.category_brand}}</a></li>
+        {% endfor %}
+    </ul>

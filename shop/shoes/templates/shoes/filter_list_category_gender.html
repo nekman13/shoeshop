@@ -1,0 +1,7 @@
+{% for category in categories_gender %}
+    <li class="nav-item">
+        <a class="nav-link active text-decoration-none" aria-current="page"
+           href="{% url 'shoes:category_gender' category.pk %}">{{ category }}</a>
+    </li>
+
+{% endfor %}

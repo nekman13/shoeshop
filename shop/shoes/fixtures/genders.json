@@ -1,0 +1,23 @@
+[
+  {
+    "model": "shoes.categorygender",
+    "pk": 1,
+    "fields": {
+      "category_gender": "Мужское"
+    }
+  },
+  {
+    "model": "shoes.categorygender",
+    "pk": 2,
+    "fields": {
+      "category_gender": "Женское"
+    }
+  },
+  {
+    "model": "shoes.categorygender",
+    "pk": 3,
+    "fields": {
+      "category_gender": "Унисекс"
+    }
+  }
+]

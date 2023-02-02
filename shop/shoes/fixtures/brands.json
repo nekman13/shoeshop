@@ -1,0 +1,30 @@
+[
+  {
+    "model": "shoes.categorybrand",
+    "pk": 1,
+    "fields": {
+      "category_brand": "Nike"
+    }
+  },
+  {
+    "model": "shoes.categorybrand",
+    "pk": 2,
+    "fields": {
+      "category_brand": "Adidas"
+    }
+  },
+  {
+    "model": "shoes.categorybrand",
+    "pk": 3,
+    "fields": {
+      "category_brand": "New Balance"
+    }
+  },
+  {
+    "model": "shoes.categorybrand",
+    "pk": 4,
+    "fields": {
+      "category_brand": "Osiris"
+    }
+  }
+]

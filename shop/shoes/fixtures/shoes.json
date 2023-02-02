@@ -1,0 +1,445 @@
+[
+  {
+    "model": "shoes.shoes",
+    "pk": 1,
+    "fields": {
+      "brand": "Nike",
+      "model": "Dunk low",
+      "color": "Georgetown",
+      "price": 12500,
+      "description": "В основе Nike Dunk Low \"Georgetown\" лежит высококачественная кожа светло-серого цвета с голубоватым подтоном. Свуши, а также элементы на носках, пятках и около шнурков окрашены в глубокий синий цвет. Дополняют дизайн классические детали: вышивки \"Nike\" на пятках, перфорация на передней части стопы для лучшей циркуляции воздуха, фирменные бирки на язычках и классическая двухцветная подошва.",
+      "realise_date": 2021,
+      "update_date": "2022-11-11T17:49:14.679Z",
+      "photo": "photos/2022/11/04/NDgeorg.webp",
+      "is_special": false,
+      "category_brand": 1,
+      "category_color": 3,
+      "category_gender": 1,
+      "category_size": [
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "model": "shoes.shoes",
+    "pk": 2,
+    "fields": {
+      "brand": "Adidas",
+      "model": "Yeezy boost 350 v2",
+      "color": "Beluga",
+      "price": 47000,
+      "description": "",
+      "realise_date": 2018,
+      "update_date": "2022-11-18T18:28:03.403Z",
+      "photo": "photos/2022/11/18/adidas_yeezyboost350belugav2.jpg",
+      "is_special": true,
+      "category_brand": 2,
+      "category_color": 5,
+      "category_gender": 3,
+      "category_size": [
+        4,
+        6
+      ]
+    }
+  },
+  {
+    "model": "shoes.shoes",
+    "pk": 3,
+    "fields": {
+      "brand": "Nike",
+      "model": "Dunk High",
+      "color": "Game royal",
+      "price": 16000,
+      "description": "Кроссовки оформлены в цветовую схему White, Game Royal и Total Orange. Белая кожаная основа сочетается с синими накладками и «свушем» из кожи, белой межподошвой и синей аутсолью. Оранжевый цвет присутствует только в брендинге стельки.",
+      "realise_date": 2020,
+      "update_date": "2022-11-11T17:49:38.481Z",
+      "photo": "photos/2022/11/04/NikeDHGR.jpg",
+      "is_special": false,
+      "category_brand": 1,
+      "category_color": 3,
+      "category_gender": 3,
+      "category_size": [
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "shoes.shoes",
+    "pk": 4,
+    "fields": {
+      "brand": "New Balance",
+      "model": "550",
+      "color": "Team Red",
+      "price": 12000,
+      "description": "Модель New Balance 550 Shifted Sport Pack Team Red представляет собой винтажную обувь для баскетбола, которая была возрождена в результате сотрудничества с Эйме Леон Доре в сентябре 2021 года. Эта пара использует четкую белую кожаную конструкцию с красными и черными акцентами. Акценты красного цвета включают рельефный логотип «N» и воротник из дышащей сетки.",
+      "realise_date": 2020,
+      "update_date": "2022-11-13T13:50:53.958Z",
+      "photo": "photos/2022/11/06/NEWb550red.jpg",
+      "is_special": false,
+      "category_brand": 3,
+      "category_color": 2,
+      "category_gender": 1,
+      "category_size": [
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "model": "shoes.shoes",
+    "pk": 5,
+    "fields": {
+      "brand": "Nike",
+      "model": "Dunk low",
+      "color": "Chicago",
+      "price": 40000,
+      "description": "Мужские кроссовки Nike SB Dunk Low Pro из коллекции Nike Skateboarding вновь получили легендарную расцветку Chicago. Заниженная модель изготовлена из высококачественной кожи. Подошва с амортизацией Zoom Air выделяется яркими вкраплениями и контрастной резиновой подметкой.",
+      "realise_date": 2020,
+      "update_date": "2022-11-11T17:49:47.273Z",
+      "photo": "photos/2022/11/08/NikeCHsb.jpg",
+      "is_special": true,
+      "category_brand": 1,
+      "category_color": 2,
+      "category_gender": 1,
+      "category_size": [
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "model": "shoes.shoes",
+    "pk": 6,
+    "fields": {
+      "brand": "New Balance",
+      "model": "550",
+      "color": "Natural green",
+      "price": 20000,
+      "description": "Aimé Leon Dore x New Balance 550 \"Natural Green\" – это баскетбольные кроссовки в стиле ретро, которые являются коллаборацией New Balance и нью-йоркским брендом уличной одежды. Интересно, что представленная модель изначально считалась спортивной обувью, дебютировавшей 1989 году, но она не была привязана к какому-то памятному событию или игроку НБА, поэтому ажиотаж вокруг нее быстро утих. Однако Aimé Leon Dore в 2020 году вернул былую славу модели 550. Основа представленной пары изготовлена из высококачественной гладкой и перфорированной кожи цвета слоновой кости, дополненная фирменными логотипами New Balance и Aimé Leon Dore на боковой части обуви и пятках. Aimé Leon Dore x New Balance 550 \"Natural Green\" были выпущены 16 апреля 2021 года.",
+      "realise_date": 2021,
+      "update_date": "2022-11-18T18:31:21.561Z",
+      "photo": "photos/2022/11/18/NEWb550Natgreen.jpg",
+      "is_special": true,
+      "category_brand": 3,
+      "category_color": 7,
+      "category_gender": 1,
+      "category_size": [
+        7
+      ]
+    }
+  },
+  {
+    "model": "shoes.shoes",
+    "pk": 7,
+    "fields": {
+      "brand": "Nike",
+      "model": "Air Jordan 4",
+      "color": "University Blue",
+      "price": 28000,
+      "description": "Jordan отдал дань уважения alma mater MJ с помощью Air Jordan 4 University Blue. Университетская голубая цветовая дорожка очень похожа на чрезвычайно редкий Air Jordan 4 UNC PE, который был подарен студентам-спортсменам Тархила в 2019 году. Модель Air Jordan 4 University Blue имеет замшевый верх университетского синего цвета с сетчатой сеткой на панели и язычке. Как и в цветовых решениях OG Jordan 4 прошлого, проушины, язычок каблука и участки подошвы имеют цементно-серый цвет в крапинку. К язычку пришиты две тканые этикетки: одна-классическая тканая этикетка Jumpman, другая-бирка Team Jordan jock. Черная, белая и технологичная серая подошва с балоном Air завершает дизайн.",
+      "realise_date": 2021,
+      "update_date": "2022-11-13T13:50:26.419Z",
+      "photo": "photos/2022/11/08/Air-Jordan-4-UNC.jpg",
+      "is_special": true,
+      "category_brand": 1,
+      "category_color": 3,
+      "category_gender": 3,
+      "category_size": [
+        4,
+        6
+      ]
+    }
+  },
+  {
+    "model": "shoes.shoes",
+    "pk": 8,
+    "fields": {
+      "brand": "Nike",
+      "model": "Air Jordan 1 High",
+      "color": "Dark mocha",
+      "price": 38000,
+      "description": "",
+      "realise_date": 2021,
+      "update_date": "2022-11-13T13:50:11.643Z",
+      "photo": "photos/2022/11/08/NikeAJ1darkMoc_uB2xFqr.jpg",
+      "is_special": true,
+      "category_brand": 1,
+      "category_color": 4,
+      "category_gender": 1,
+      "category_size": [
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "model": "shoes.shoes",
+    "pk": 9,
+    "fields": {
+      "brand": "Nike",
+      "model": "Dunk low",
+      "color": "Lime Ice",
+      "price": 12000,
+      "description": "Женские кроссовки Wmns Nike Dunk Low Lime Ice выполнены в контрастных пастельных тонах. Кожаный верх сочетает приглушенно-розовую основу с яркими лаймово-зелеными накладками и фирменным логотипом Swoosh. Стандартные элементы Dunk Low включают перфорированный носок, низкий верх на текстильной подкладке и язычок из нейлона.",
+      "realise_date": 2021,
+      "update_date": "2022-11-15T14:35:34.865Z",
+      "photo": "photos/2022/11/10/NikeDLmulticolor_1Y0a0W3.jpg",
+      "is_special": false,
+      "category_brand": 1,
+      "category_color": 7,
+      "category_gender": 2,
+      "category_size": [
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "shoes.shoes",
+    "pk": 10,
+    "fields": {
+      "brand": "Nike",
+      "model": "Dunk High",
+      "color": "Varsity Purple",
+      "price": 14500,
+      "description": "Dunk High Varsity Purple (2022) - Эта расцветка очень сильно напоминает «City Attack» из далекого 1999 года. Кроссовки оформлены в простую цветовую схему с оттенками White и Varsity Purple. Интересно смотрится золотистый брендинг на язычке и пурпурная полупрозрачная подошва. Фиолетовыми сделаны также шнурки и «свуш» сбоку.",
+      "realise_date": 2022,
+      "update_date": "2022-11-15T11:31:59.293Z",
+      "photo": "photos/2022/11/15/NikeDHPurpjpg.jpg",
+      "is_special": false,
+      "category_brand": 1,
+      "category_color": 1,
+      "category_gender": 3,
+      "category_size": [
+        2,
+        4,
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "model": "shoes.shoes",
+    "pk": 11,
+    "fields": {
+      "brand": "Osiris",
+      "model": "D3",
+      "color": "Black",
+      "price": 13000,
+      "description": "",
+      "realise_date": 2001,
+      "update_date": "2022-11-15T14:33:21.521Z",
+      "photo": "photos/2022/11/15/osorisd3black.jpeg",
+      "is_special": false,
+      "category_brand": 4,
+      "category_color": 4,
+      "category_gender": 1,
+      "category_size": [
+        7,
+        8,
+        10,
+        11
+      ]
+    }
+  },
+  {
+    "model": "shoes.shoes",
+    "pk": 12,
+    "fields": {
+      "brand": "New Balance",
+      "model": "550",
+      "color": "Black",
+      "price": 11000,
+      "description": "",
+      "realise_date": 2020,
+      "update_date": "2022-11-15T16:01:11.844Z",
+      "photo": "",
+      "is_special": false,
+      "category_brand": 3,
+      "category_color": 4,
+      "category_gender": 1,
+      "category_size": [
+        8,
+        9,
+        10,
+        11
+      ]
+    }
+  },
+  {
+    "model": "shoes.shoes",
+    "pk": 13,
+    "fields": {
+      "brand": "Nike",
+      "model": "Air Jordan 4",
+      "color": "PSG",
+      "price": 26000,
+      "description": "Модель, совмещающая баскетбольное наследие Майкла Джордана и узнаваемый брендинг финалиста Лиги Чемпионов.В этом сезоне культовая расцветка становится проводником между миром баскетбола и футбола. Модель Air Jordan IV получает среднюю высоту, видимую воздушную капсулу и сетку на боковой и центральной панели. Релиз дополнен видоизменённым логотипом футбольного клуба «ПСЖ» на задниках, а также нашивкой с надписью «Paname» (самоназвание парижан) и надписью на стельке «Ici c’est Paris» («Здесь — Париж»), символизирующей единство болельщиков и клуба. Отметим, что релиз приурочен к 50-летнему юбилею футбольного клуба.",
+      "realise_date": 2021,
+      "update_date": "2022-11-18T18:09:56.015Z",
+      "photo": "photos/2022/11/18/AirJ4psg.jpg",
+      "is_special": true,
+      "category_brand": 1,
+      "category_color": 1,
+      "category_gender": 3,
+      "category_size": [
+        4,
+        8,
+        9,
+        10
+      ]
+    }
+  },
+  {
+    "model": "shoes.shoes",
+    "pk": 14,
+    "fields": {
+      "brand": "Adidas",
+      "model": "Yeezy 500",
+      "color": "Black",
+      "price": 18000,
+      "description": "",
+      "realise_date": 2019,
+      "update_date": "2022-11-18T18:35:19.029Z",
+      "photo": "photos/2022/11/18/adidasyeezy500black_PpEEkdP.jpg",
+      "is_special": true,
+      "category_brand": 2,
+      "category_color": 4,
+      "category_gender": 1,
+      "category_size": [
+        8,
+        9,
+        10,
+        11
+      ]
+    }
+  },
+  {
+    "model": "shoes.shoes",
+    "pk": 15,
+    "fields": {
+      "brand": "Adidas",
+      "model": "Yeezy  500",
+      "color": "ASH Gray",
+      "price": 20000,
+      "description": "",
+      "realise_date": 2020,
+      "update_date": "2022-11-18T18:32:51.365Z",
+      "photo": "photos/2022/11/18/adidasyeezy500gray_sNo7biw.jpg",
+      "is_special": true,
+      "category_brand": 2,
+      "category_color": 5,
+      "category_gender": 3,
+      "category_size": [
+        2,
+        4,
+        5,
+        9,
+        10,
+        11
+      ]
+    }
+  },
+  {
+    "model": "shoes.shoes",
+    "pk": 16,
+    "fields": {
+      "brand": "Adidas",
+      "model": "Yeezy 500",
+      "color": "Enflame",
+      "price": 19000,
+      "description": "",
+      "realise_date": 2020,
+      "update_date": "2022-11-18T18:21:37.347Z",
+      "photo": "photos/2022/11/18/adidasyeezy500enfalmesnickjpg_Hdo9JTn.jpg",
+      "is_special": true,
+      "category_brand": 2,
+      "category_color": 6,
+      "category_gender": 3,
+      "category_size": [
+        3,
+        4,
+        6,
+        7,
+        8
+      ]
+    }
+  },
+  {
+    "model": "shoes.shoes",
+    "pk": 17,
+    "fields": {
+      "brand": "Adidas",
+      "model": "Yeezy 500",
+      "color": "Soft Vision",
+      "price": 16000,
+      "description": "",
+      "realise_date": 2021,
+      "update_date": "2022-11-18T18:19:56.404Z",
+      "photo": "photos/2022/11/18/adidasyeezy500rose.jpg",
+      "is_special": true,
+      "category_brand": 2,
+      "category_color": 1,
+      "category_gender": 2,
+      "category_size": [
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "shoes.shoes",
+    "pk": 18,
+    "fields": {
+      "brand": "Osiris",
+      "model": "D3",
+      "color": "Greay/Cyan",
+      "price": 11000,
+      "description": "",
+      "realise_date": 2001,
+      "update_date": "2022-11-18T18:25:32.013Z",
+      "photo": "photos/2022/11/18/osorisd3greyjpeg.jpeg",
+      "is_special": false,
+      "category_brand": 4,
+      "category_color": 5,
+      "category_gender": 1,
+      "category_size": [
+        7,
+        8,
+        9
+      ]
+    }
+  },
+  {
+    "model": "shoes.shoes",
+    "pk": 19,
+    "fields": {
+      "brand": "Adidas",
+      "model": "Yeezy boost 350 v2",
+      "color": "Zyon",
+      "price": 30000,
+      "description": "",
+      "realise_date": 2020,
+      "update_date": "2022-11-18T18:29:43.646Z",
+      "photo": "photos/2022/11/18/adidas_yeezyboost350v2zyon.jpg",
+      "is_special": true,
+      "category_brand": 2,
+      "category_color": 5,
+      "category_gender": 1,
+      "category_size": [
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    }
+  }
+]

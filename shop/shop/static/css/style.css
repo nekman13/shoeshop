@@ -1,0 +1,37 @@
+body{
+    background-color: #fefefe;
+}
+
+.navbar
+{
+background: #212121;
+}
+
+
+.pagination > li > a
+{
+    background-color: white;
+    color: #212121 ;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: #212121;
+    background-color: #eee;
+    border-color: #212121;
+}
+
+.pagination > .active > a
+{
+    color: white;
+    background-color: #212121 !Important;
+    border: solid 1px #212121 !Important;
+}
+
+
+
+
+

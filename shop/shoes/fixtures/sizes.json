@@ -1,0 +1,82 @@
+[
+  {
+    "model": "shoes.categorysize",
+    "pk": 2,
+    "fields": {
+      "title_size": "36 EU",
+      "category_size": 36
+    }
+  },
+  {
+    "model": "shoes.categorysize",
+    "pk": 3,
+    "fields": {
+      "title_size": "37 EU",
+      "category_size": 37
+    }
+  },
+  {
+    "model": "shoes.categorysize",
+    "pk": 4,
+    "fields": {
+      "title_size": "38 EU",
+      "category_size": 38
+    }
+  },
+  {
+    "model": "shoes.categorysize",
+    "pk": 5,
+    "fields": {
+      "title_size": "39 EU",
+      "category_size": 39
+    }
+  },
+  {
+    "model": "shoes.categorysize",
+    "pk": 6,
+    "fields": {
+      "title_size": "40 EU",
+      "category_size": 40
+    }
+  },
+  {
+    "model": "shoes.categorysize",
+    "pk": 7,
+    "fields": {
+      "title_size": "41 EU",
+      "category_size": 41
+    }
+  },
+  {
+    "model": "shoes.categorysize",
+    "pk": 8,
+    "fields": {
+      "title_size": "42 EU",
+      "category_size": 42
+    }
+  },
+  {
+    "model": "shoes.categorysize",
+    "pk": 9,
+    "fields": {
+      "title_size": "43 EU",
+      "category_size": 43
+    }
+  },
+  {
+    "model": "shoes.categorysize",
+    "pk": 10,
+    "fields": {
+      "title_size": "44 EU",
+      "category_size": 44
+    }
+  },
+  {
+    "model": "shoes.categorysize",
+    "pk": 11,
+    "fields": {
+      "title_size": "45 EU",
+      "category_size": 45
+    }
+  }
+]
