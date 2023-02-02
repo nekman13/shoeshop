@@ -1,3 +1,4 @@
+from common.views import CommonMixin
 from django.contrib.auth import logout
 from django.contrib.auth.views import LoginView
 from django.contrib.messages.views import SuccessMessageMixin
@@ -5,8 +6,6 @@ from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import CreateView, UpdateView
-
-from common.views import CommonMixin
 from shoes.models import Basket
 
 from .forms import UserChangeProfileForm, UserLoginForm, UserRegisterForm
@@ -56,7 +55,7 @@ class UserProfileView(CommonMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["baskets"] = Basket.objects.all()
+        context["baskets"] = Basket.objects.filter(user=self.request.user)
         return context
 
     def get_success_url(self):

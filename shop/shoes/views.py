@@ -1,8 +1,8 @@
+from common.views import CommonMixin
+from django.contrib.auth.decorators import login_required
 from django.db.models import Max, Min, Q
 from django.shortcuts import redirect, render
 from django.views.generic import DetailView, ListView
-
-from common.views import CommonMixin
 
 from .models import (Basket, CategoryBrand, CategoryColor, CategoryGender,
                      CategorySize, Shoes)
@@ -121,7 +121,6 @@ class FilterView(CommonMixin, ListView):
         return context
 
     def get_queryset(self):
-
         min_price = self.request.GET.get("min_price")
         max_price = self.request.GET.get("max_price")
         lst_category_brand = self.request.GET.getlist("category_brand")
@@ -164,7 +163,6 @@ class Search(CommonMixin, ListView):
         return Shoes.objects.all()
 
     def get_context_data(self, *, object_list=None, **kwargs):
-
         search_request = self.request.GET.get("request_search", "")
 
         context = super(Search, self).get_context_data(**kwargs)
@@ -180,7 +178,7 @@ class Search(CommonMixin, ListView):
 
         return context
 
-
+@login_required()
 def basket_add(request, shoes_id):
     shoes = Shoes.objects.get(pk=shoes_id)
     baskets = Basket.objects.filter(user=request.user, shoes=shoes)
@@ -194,7 +192,7 @@ def basket_add(request, shoes_id):
 
     return redirect(request.META.get("HTTP_REFERER"))
 
-
+@login_required()
 def basket_remove(request, basket_id):
     basket = Basket.objects.get(id=basket_id)
     basket.delete()

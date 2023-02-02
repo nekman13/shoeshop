@@ -1,7 +1,8 @@
 from django.test import TestCase
 from django.urls import reverse_lazy
 
-from .models import Shoes, CategorySize, CategoryGender, CategoryColor, CategoryBrand
+from .models import (CategoryBrand, CategoryColor, CategoryGender,
+                     CategorySize, Shoes)
 
 
 class HomePageTests(TestCase):
@@ -13,7 +14,13 @@ class HomePageTests(TestCase):
 
 
 class ListPairViewTests(TestCase):
-    fixtures = ['shoes.json', 'brands.json', 'colors.json', 'sizes.json', 'genders.json']
+    fixtures = [
+        "shoes.json",
+        "brands.json",
+        "colors.json",
+        "sizes.json",
+        "genders.json",
+    ]
 
     def setUp(self):
         self.shoes = Shoes.objects.all()
@@ -26,8 +33,15 @@ class ListPairViewTests(TestCase):
         self.assertTemplateUsed(response, "shoes/list_pairs_view.html")
         self.assertEqual(response.context["title"], "Каталог")
         self.assertEqual(list(response.context["all_pair"]), list(self.shoes))
-        self.assertEqual(list(response.context["brands"]), list(CategoryBrand.objects.all()))
-        self.assertEqual(list(response.context["colors"]), list(CategoryColor.objects.all()))
-        self.assertEqual(list(response.context["genders"]), list(CategoryGender.objects.all()))
-        self.assertEqual(list(response.context["sizes"]), list(CategorySize.objects.all()))
-
+        self.assertEqual(
+            list(response.context["brands"]), list(CategoryBrand.objects.all())
+        )
+        self.assertEqual(
+            list(response.context["colors"]), list(CategoryColor.objects.all())
+        )
+        self.assertEqual(
+            list(response.context["genders"]), list(CategoryGender.objects.all())
+        )
+        self.assertEqual(
+            list(response.context["sizes"]), list(CategorySize.objects.all())
+        )

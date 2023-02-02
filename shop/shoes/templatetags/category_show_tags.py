@@ -1,6 +1,5 @@
 from django import template
 from django.db.models import *
-
 from shoes.models import *
 
 register = template.Library()
