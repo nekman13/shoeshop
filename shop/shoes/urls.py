@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.urls import path
 
+from .services import basket_add, basket_remove
 from .views import *
 
 app_name = "shoes"
@@ -21,10 +22,10 @@ urlpatterns = [
     ),
     path("filter/", FilterView.as_view(), name="filter"),
     path("search/", Search.as_view(), name="search"),
-    path("baskets/add/<int:shoes_id>/", login_required(basket_add), name="basket_add"),
+    path("baskets/add/<int:shoes_id>/", basket_add, name="basket_add"),
     path(
         "baskets/remove/<int:basket_id>/",
-        login_required(basket_remove),
+        basket_remove,
         name="basket_remove",
     ),
 ]

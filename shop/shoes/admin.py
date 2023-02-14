@@ -1,7 +1,13 @@
 from django.contrib import admin
 
-from .models import (Basket, CategoryBrand, CategoryColor, CategoryGender,
-                     CategorySize, Shoes)
+from .models import (
+    Basket,
+    CategoryBrand,
+    CategoryColor,
+    CategoryGender,
+    CategorySize,
+    Shoes,
+)
 
 
 class ShoesAdmin(admin.ModelAdmin):

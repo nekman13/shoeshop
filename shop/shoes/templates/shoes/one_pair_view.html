@@ -3,33 +3,39 @@
 {% block title %} <title>{{ title }}</title> {% endblock %}
 
 {% block sidebar %}
+
 {% endblock %}
 
 {% block content %}
-      <div class="card mb-3">
+    <div class="card mb-3">
         <div class="card-body">
-          <div class="media">
-            {% if one_pair.photo%}
-            <img src="{{one_pair.photo.url}}", width="600">
-            {% else %}
-            <img src="https://avatars.mds.yandex.net/i?id=bcb66a4b38e66b9bed06d8af2c2e6e41-5235777-images-thumbs&n=13", width="600">
-            {% endif%}
-            <div class="media-body">
-              <h5 class="card-title"> {{one_pair.brand}} </h5>
-              <p
-                      class="card-text"><b>{{one_pair.model}} {{one_pair.color}} ({{one_pair.realise_date}})</b>
-                {% if one_pair.is_special %}
-                <b class="text-primary">Эксклюзивная пара!</b>
+            <div class="media">
+                {% if one_pair.photo %}
+                    <img src="{{ one_pair.photo.url }}" , width="600">
+                {% else %}
+                    <img src="https://avatars.mds.yandex.net/i?id=bcb66a4b38e66b9bed06d8af2c2e6e41-5235777-images-thumbs&n=13"
+                         , width="600">
                 {% endif %}
-                - {{one_pair.description}}
-              </p>
-
+                <div class="media-body">
+                    <h5 class="card-title"> {{ one_pair.brand }} </h5>
+                    <p
+                            class="card-text"><b>{{ one_pair.model }} {{ one_pair.color }}
+                        ({{ one_pair.realise_date }})</b>
+                        {% if one_pair.is_special %}
+                            <b class="text-primary">Эксклюзивная пара!</b>
+                        {% endif %}
+                        - {{ one_pair.description }}
+                    </p>
+                    <a href="{% url 'shoes:basket_add' one_pair.pk %}"
+                       class="btn btn-outline-dark text-decoration-none">Добавить в корзину
+                    </a>
+                </div>
             </div>
-          </div>
         </div>
+
 
         <div class="card-footer text-muted">
-<!--          {{item.created_at|date:'Y-m-d H:m'}}-->
+            <!--          {{item.created_at|date:'Y-m-d H:m'}}-->
         </div>
-      </div>
+    </div>
 {% endblock %}

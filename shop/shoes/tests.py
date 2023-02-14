@@ -1,8 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse_lazy
 
-from .models import (CategoryBrand, CategoryColor, CategoryGender,
-                     CategorySize, Shoes)
+from .models import CategoryBrand, CategoryColor, CategoryGender, CategorySize, Shoes
 
 
 class HomePageTests(TestCase):
