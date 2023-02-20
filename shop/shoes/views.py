@@ -1,7 +1,5 @@
 from common.views import CommonMixin
-from django.contrib.auth.decorators import login_required
-from django.db.models import Max, Min, Q
-from django.shortcuts import redirect, render
+from django.db.models import Q
 from django.views.generic import DetailView, ListView
 
 from .models import (

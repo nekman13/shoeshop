@@ -1,8 +1,15 @@
-from django.contrib.auth.decorators import login_required
 from django.urls import path
 
 from .services import basket_add, basket_remove
-from .views import *
+from .views import (
+    HomePage,
+    ListPairView,
+    OnePairView,
+    GetCategoryBrand,
+    GetCategoryGender,
+    FilterView,
+    Search,
+)
 
 app_name = "shoes"
 
