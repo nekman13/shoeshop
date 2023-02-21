@@ -1,13 +1,7 @@
 from django.contrib import admin
 
-from .models import (
-    Basket,
-    CategoryBrand,
-    CategoryColor,
-    CategoryGender,
-    CategorySize,
-    Shoes,
-)
+from .models import (Basket, CategoryBrand, CategoryColor, CategoryGender,
+                     CategorySize, Shoes)
 
 
 class ShoesAdmin(admin.ModelAdmin):
@@ -59,14 +53,19 @@ class CategoryAdminSize(admin.ModelAdmin):
     list_display_links = ("id", "category_size")
 
 
-@admin.register(Basket)
-class BasketAdmin(admin.ModelAdmin):
-    list_display = (
+class BasketAdmin(admin.TabularInline):
+    model = Basket
+    fields = [
         "id",
         "user",
         "shoes",
-    )
-    list_display_links = ("id", "user")
+    ]
+    # list_display = (
+    #     "id",
+    #     "user",
+    #     "shoes",
+    # )
+    # list_display_links = ("id", "user")
 
 
 admin.site.register(Shoes, ShoesAdmin)

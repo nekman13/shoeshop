@@ -1,15 +1,10 @@
-from common.views import CommonMixin
 from django.db.models import Q
 from django.views.generic import DetailView, ListView
 
-from .models import (
-    Basket,
-    CategoryBrand,
-    CategoryColor,
-    CategoryGender,
-    CategorySize,
-    Shoes,
-)
+from common.views import CommonMixin
+
+from .models import (Basket, CategoryBrand, CategoryColor, CategoryGender,
+                     CategorySize, Shoes)
 from .services import filter_pairs, search_request_filter
 
 

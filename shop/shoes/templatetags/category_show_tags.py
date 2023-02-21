@@ -1,5 +1,6 @@
 from django import template
 from django.db.models import Count
+
 from shoes.models import CategoryBrand, CategoryGender
 
 register = template.Library()
