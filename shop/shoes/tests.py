@@ -12,7 +12,6 @@ class HomePageTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "shoes/index.html")
 
-
 class ListPairViewTests(TestCase):
     fixtures = [
         "shoes.json",

@@ -1,8 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.urls import path
 
-from .views import (UserLoginView, UserLogoutView, UserProfileView,
-                    UserRegisterView)
+from .views import (EmailVerificationView, UserLoginView, UserLogoutView,
+                    UserProfileView, UserRegisterView)
 
 app_name = "users"
 
@@ -12,5 +12,10 @@ urlpatterns = [
     path("logout/", login_required(UserLogoutView.as_view()), name="logout"),
     path(
         "profile/<int:pk>/", login_required(UserProfileView.as_view()), name="profile"
+    ),
+    path(
+        "verify/<str:email>/<uuid:code>/",
+        EmailVerificationView.as_view(),
+        name="verify",
     ),
 ]
