@@ -2,9 +2,6 @@
 {% load static %}
 
 
-{% load static %}
-
-
 <head>
     <title>{{ title }}</title>
 </head>
@@ -38,7 +35,7 @@
 </nav>
 
 
-{% block content %}
+{#{% block content %}#}
 
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static '/css/style.css' %}" rel="stylesheet">
@@ -110,7 +107,6 @@
     </div>
 
 
-{% endblock %}
 
 <!-- Bootstrap core JavaScript -->
 <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>

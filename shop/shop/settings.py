@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "shoes.apps.ShoesConfig",
     "users.apps.UsersConfig",
+    "orders.apps.OrdersConfig",
     "debug_toolbar",
 ]
 
