@@ -1,77 +1,91 @@
-{% extends 'base.html' %}
+{% include 'orders/inc/_navbar_profile.html' %}
+{% load static %}
+{% load humanize %}
 
-{% block content %}
-    <section>
-        <div class="alert alert-warning text-center" role="alert">
-            Пожалуйста, заполните адрес электронной почты.
+
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static '/css/style.css' %}" rel="stylesheet">
+</head>
+<section>
+    <div class="alert alert-warning text-center" role="alert">
+        Пожалуйста, заполните адрес электронной почты.
+    </div>
+    <div class="container">
+        <div class="py-5 text-center">
+            <h1>Оформление заказа</h1>
         </div>
-        <div class="container">
-            <div class="py-5 text-center">
-                <h1>Оформление заказа</h1>
-            </div>
-            <div class="row g-5">
-                <div class="col-md-5 col-lg-4 order-md-last">
+        <div class="row g-5">
+            <div class="col-md-5 col-lg-4 order-md-last">
 
 
-                    <h4 class="d-flex justify-content-between align-items-center mb-3">
-                        <span class="text-primary">Корзина</span>
-                        <span class="badge badge-primary badge-pill text-white">3</span>
-                    </h4>
-                    <ul class="list-group mb-3">
-                        {% for basket in baskets %}
-                            <li class="list-group-item d-flex justify-content-between lh-sm">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-dark">Корзина</span>
+                    <span class="badge badge-dark badge-pill">{{ baskets.total_quantity }}</span>
+                </h4>
+                <ul class="list-group mb-3">
+                    {% for basket in baskets %}
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
 
-                                <div>
-                                    <h6 class="my-0">{{ basket.shoes.brand }} {{ basket.shoes.model }} {{ basket.shoes.color }}</h6>
-                                    <small class="text-muted">{{ basket.quantity }} шт.</small>
-                                </div>
-                                <span class="text-muted">{{ basket.sum_price }} руб.</span>
-                            </li>
-                        {% endfor %}
-                        <li class="list-group-item d-flex justify-content-between">
-                            <span>Сумма к оплате</span>
-                            <strong>{{ baskets.total_sum_price }} руб.</strong>
+                            <div>
+                                <h6 class="my-0">{{ basket.shoes.brand }} {{ basket.shoes.model }} {{ basket.shoes.color }}</h6>
+                                <small class="text-muted">{{ basket.quantity }} шт.</small>
+                            </div>
+                            <span class="text-muted">{{ basket.sum_price | intcomma }} руб.</span>
                         </li>
-                    </ul>
+                    {% endfor %}
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Сумма к оплате</span>
+                        <strong>{{ baskets.total_sum_price | intcomma }} руб.</strong>
+                    </li>
+                </ul>
 
 
-                </div>
-                <div class="col-md-7 col-lg-8">
-                    <h4 class="mb-3">Адрес доставки</h4>
-                    <form>
-                        <div class="row g-3">
-                            <div class="col-sm-6">
-                                <label for="firstName" class="form-label">Имя</label>
-                                <input type="text" class="form-control" id="firstName" placeholder="{{ user.first_name }}" value=""
-                                       required>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <label for="lastName" class="form-label">Фамилия</label>
-                                <input type="text" class="form-control" id="lastName" placeholder="{{ user.last_name }}" value=""
-                                       required>
-                            </div>
-
-                            <div class="col-12 mt-3">
-                                <label for="email" class="form-label">Адрес электронной почты</label>
-                                <input type="email" class="form-control" id="email" placeholder="{{ user.email }}">
-                            </div>
-
-                            <div class="col-12 mt-3">
-                                <label for="address" class="form-label">Адрес</label>
-                                <input type="text" class="form-control" id="address"
-                                       placeholder="Россия, Москва, ул. Мира, дом 6" required>
-                            </div>
-
+            </div>
+            <div class="col-md-7 col-lg-8">
+                <h4 class="mb-3">Адрес доставки</h4>
+                <form action="{% url 'orders:create_order' %}" method="post">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="{{ form.first_name.id_for_label }}" class="form-label">Имя</label>
+                            {{ form.first_name }}
                         </div>
 
-                        <hr class="my-4">
+                        <div class="col-sm-6">
+                            <label for="{{ form.last_name.id_for_label }}" class="form-label">Фамилия</label>
+                            {{ form.last_name }}
+                        </div>
 
-                        <button class="w-100 btn btn-primary btn-lg" type="submit">Продолжить</button>
-                    </form>
-                </div>
+                        <div class="col-12 mt-3">
+                            <label for="{{ form.email.id_for_label }}" class="form-label">Адрес электронной
+                                почты</label>
+                            {{ form.email }}
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <label for="{{ form.address.id_for_label }}" class="form-label">Адрес</label>
+                            {{ form.address }}
+                        </div>
+
+                    </div>
+
+                    <hr class="my-4">
+
+                    <button class="w-100 btn btn-dark btn-lg" type="submit">Продолжить</button>
+                </form>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-{% endblock %}
+
+<!-- FontAwesome script -->
+<script src=" {% static 'vendor/fontawesome/fontawesome-icons.js' %}" crossorigin="anonymous"></script>
+
+

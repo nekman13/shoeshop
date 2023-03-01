@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-dark justify-content-between">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'shoes:home' %}">
+            <img src="/media/photos/2022/loadphoto/logo.png" width="80" height="50" alt="">
+        </a>
+        <a class="navbar-brand text-decoration-none" href="{% url 'shoes:home' %}"><h3><b>SHOESHOP</b></h3></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+
+                {% if flag == "orders" %}
+                    <ul class="navbar-nav navbar-brand">
+                        <a href="{% url 'users:profile' user.pk %} " class="text-decoration-none text-light">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                            <i class="fas fa-user-circle"></i>
+                        </a>
+                    </ul>
+                {% else %}
+                {% endif %}
+
+                <li class="nav-item">
+                    <a class="nav-link active text-decoration-none" aria-current="page"
+                       href="{% url 'shoes:list_pair_view' %}">Каталог <i class="fas fa-shopping-bag"> </i></a>
+                </li>
+            </ul>
+
+
+        </div>
+    </div>
+</nav>
+
+<script src="https://kit.fontawesome.com/ba57aa7ee7.js" crossorigin="anonymous"></script>
+

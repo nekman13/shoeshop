@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -28,7 +27,6 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 DOMAIN_NAME = "http://127.0.0.1:2000"
-
 
 # Application definition
 
@@ -43,6 +41,7 @@ INSTALLED_APPS = [
     "users.apps.UsersConfig",
     "orders.apps.OrdersConfig",
     "debug_toolbar",
+    "django.contrib.humanize",
 ]
 
 MIDDLEWARE = [
@@ -87,7 +86,6 @@ CACHES = {
     }
 }
 
-
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
@@ -120,7 +118,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
@@ -131,7 +128,6 @@ TIME_ZONE = "Europe/Moscow"
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -157,12 +153,11 @@ EMAIL_HOST_USER = "serverpoletaev@yandex.ru"
 EMAIL_HOST_PASSWORD = "dxanqbpfqytekcqx"
 EMAIL_USE_SSL = True
 
-
 # media
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
-#celery
+# celery
 CELERY_BROKER_URL = "redis://127.0.0.1:6379"
 CELERY_RESULT_BACKEND = "redis://127.0.0.1:6379"
 # CELERY_ACCEPT_CONTENT = ["application/json"]

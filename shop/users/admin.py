@@ -19,3 +19,5 @@ class EmailVerificationAdmin(admin.ModelAdmin):
     list_display = ["code", "user", "expiration"]
     fields = ["user", "code", "created", "expiration"]
     readonly_fields = ["created"]
+    verbose_name_plural = "Подтверждения"
+    verbose_name = "Подтверждение"

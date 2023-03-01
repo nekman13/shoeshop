@@ -1,8 +1,15 @@
 from django.urls import path
 
 from .services import basket_add, basket_remove
-from .views import (FilterView, GetCategoryBrand, GetCategoryGender, HomePage,
-                    ListPairView, OnePairView, Search)
+from .views import (
+    FilterView,
+    GetCategoryBrand,
+    GetCategoryGender,
+    HomePage,
+    ListPairView,
+    OnePairView,
+    Search,
+)
 
 app_name = "shoes"
 

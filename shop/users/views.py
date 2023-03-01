@@ -54,6 +54,7 @@ class UserProfileView(CommonMixin, UpdateView):
     form_class = UserChangeProfileForm
     success_url = reverse_lazy("users:profile")
     title = "Личный кабинет"
+    flag = "profile"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

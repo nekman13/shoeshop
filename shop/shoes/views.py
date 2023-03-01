@@ -3,8 +3,14 @@ from django.views.generic import DetailView, ListView
 
 from common.views import CommonMixin
 
-from .models import (Basket, CategoryBrand, CategoryColor, CategoryGender,
-                     CategorySize, Shoes)
+from .models import (
+    Basket,
+    CategoryBrand,
+    CategoryColor,
+    CategoryGender,
+    CategorySize,
+    Shoes,
+)
 from .services import filter_pairs, search_request_filter
 
 

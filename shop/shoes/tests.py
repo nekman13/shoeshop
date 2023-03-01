@@ -1,8 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse_lazy
 
-from .models import (CategoryBrand, CategoryColor, CategoryGender,
-                     CategorySize, Shoes)
+from .models import CategoryBrand, CategoryColor, CategoryGender, CategorySize, Shoes
 
 
 class HomePageTests(TestCase):
@@ -11,6 +10,7 @@ class HomePageTests(TestCase):
         response = self.client.get(path)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "shoes/index.html")
+
 
 class ListPairViewTests(TestCase):
     fixtures = [

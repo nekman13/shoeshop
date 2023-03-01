@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load humanize %}
 
 {% block title %} <title xmlns="http://www.w3.org/1999/html">{{ title }}</title> {% endblock %}
 
@@ -75,7 +75,7 @@
                         {% endif %}
                     </p>
                     <a class="text-decoration-none text-black" href="{% url 'shoes:one_pair_view' item.pk %}">
-                        <h5>{{ item.price }} ₽</h5></a>
+                        <h5>{{ item.price | intcomma }} ₽</h5></a>
                     <a href="{% url 'shoes:one_pair_view' item.pk %}"
                        class="btn btn-dark text-decoration-none">Купить
                     </a>
