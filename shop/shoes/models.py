@@ -1,6 +1,10 @@
+import stripe
+from django.conf import settings
 from django.db import models
 
 from users.models import User
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 class Shoes(models.Model):
@@ -19,6 +23,7 @@ class Shoes(models.Model):
         blank=True, upload_to="photos/%Y/%m/%d", verbose_name="Фото"
     )
     is_special = models.BooleanField(default=False, verbose_name="Эксклюзивность")
+    stripe_shoes_price_id = models.CharField(max_length=128, null=True, blank=True)
     category_brand = models.ForeignKey(
         "CategoryBrand",
         on_delete=models.PROTECT,
@@ -43,6 +48,26 @@ class Shoes(models.Model):
 
     def __str__(self):
         return self.brand
+
+    def save(
+            self, force_insert=False, force_update=False, using=None, update_fields=None
+    ):
+        if not self.stripe_shoes_price_id:
+            stripe_shoes_price = self.create_stripe_shoes_price()
+            self.stripe_shoes_price_id = stripe_shoes_price["id"]
+
+        super(Shoes, self).save(
+            force_insert=False, force_update=False, using=None, update_fields=None
+        )
+
+    def create_stripe_shoes_price(self):
+        stripe_shoes = stripe.Product.create(name=f'{self.brand} {self.model} {self.color}')
+        stripe_shoes_price = stripe.Price.create(
+            product=stripe_shoes["id"],
+            unit_amount=round(self.price * 100),
+            currency="rub",
+        )
+        return stripe_shoes_price
 
     class Meta:
         verbose_name = "Пары"
@@ -115,6 +140,16 @@ class BasketQuerySet(models.QuerySet):
     def total_quantity(self):  # возвращает количество товаров в корзине
         return sum(basket.quantity for basket in self)
 
+    def get_stripe_shoes(self):
+        line_items = []
+        for basket in self:
+            item = {
+                'price': basket.shoes.stripe_shoes_price_id,
+                'quantity': basket.quantity
+            }
+            line_items.append(item)
+        return line_items
+
 
 class Basket(models.Model):
     """Модель корзины"""
@@ -132,6 +167,15 @@ class Basket(models.Model):
 
     def __str__(self):
         return f" Корзина пользователя - {self.user.username} с {self.shoes.model}"
+
+    def de_json(self):
+        basket_item = {
+            'product_name': f'{self.shoes.brand} {self.shoes.model} {self.shoes.color}',
+            'quantity': self.quantity,
+            'price': float(self.shoes.price),
+            'summ': float(self.sum_price()),
+        }
+        return basket_item
 
     def sum_price(self):
         return self.shoes.price * self.quantity

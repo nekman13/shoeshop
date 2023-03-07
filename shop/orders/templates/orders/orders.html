@@ -1,5 +1,6 @@
 {% include 'orders/inc/_navbar_profile.html' %}
 {% load static %}
+{% load humanize %}
 
 <!doctype html>
 <html lang="ru">
@@ -29,33 +30,17 @@
                     </tr>
                     </thead>
                     <tbody>
+                    {% for order in orders %}
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Оплачен</td>
-                        <td>21 авг. 21 года</td>
-                        <td>5 070 руб.</td>
+                        <th scope="row">{{ order.pk }}</th>
+                        <td>{{ order.get_status_display }}</td>
+                        <td>{{ order.created_at | naturaltime }}</td>
+                        <td>{{ order.basket_history.total_sum | intcomma }} руб.</td>
                         <td>
                             <a href="order.html">просмотреть</a>
                         </td>
                     </tr>
-                    <tr class="table-success">
-                        <th scope="row">2</th>
-                        <td>Досталвен</td>
-                        <td>16 июля 21 года</td>
-                        <td>4 876 руб.</td>
-                        <td>
-                            <a href="order.html">просмотреть</a>
-                        </td>
-                    </tr>
-                    <tr class="table-info">
-                        <th scope="row">3</th>
-                        <td>В пути</td>
-                        <td>14 нояб. 21 года</td>
-                        <td>9 566 руб.</td>
-                        <td>
-                            <a href="order.html">просмотреть</a>
-                        </td>
-                    </tr>
+                    {% endfor %}
                     </tbody>
                 </table>
             </div>

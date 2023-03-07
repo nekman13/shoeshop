@@ -22,6 +22,7 @@ class ShoesAdmin(admin.ModelAdmin):
         "update_date",
         "photo",
         "is_special",
+        "stripe_shoes_price_id",
         "category_brand",
         "category_color",
         "category_gender",
