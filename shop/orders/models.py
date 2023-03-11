@@ -40,13 +40,11 @@ class Order(models.Model):
         baskets = Basket.objects.filter(user=self.initiator)
         self.status = self.PAID
         self.basket_history = {
-            'payment_products': [basket.de_json() for basket in baskets],
-            'total_sum': float(baskets.total_sum_price()),
+            "payment_products": [basket.de_json() for basket in baskets],
+            "total_sum": float(baskets.total_sum_price()),
         }
         baskets.delete()
         self.save()
-
-
 
     class Meta:
         verbose_name = "Заказ"

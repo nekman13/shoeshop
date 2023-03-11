@@ -150,7 +150,7 @@ LOGOUT_REDIRECT_URL = "/"
 EMAIL_HOST = "smtp.yandex.com"
 EMAIL_PORT = 465
 EMAIL_HOST_USER = "serverpoletaev@yandex.ru"
-EMAIL_HOST_PASSWORD = "dxanqbpfqytekcqx"
+EMAIL_HOST_PASSWORD = "gdxfnfdemfsyxegp"
 EMAIL_USE_SSL = True
 
 # media

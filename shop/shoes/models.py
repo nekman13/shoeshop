@@ -50,7 +50,7 @@ class Shoes(models.Model):
         return self.brand
 
     def save(
-            self, force_insert=False, force_update=False, using=None, update_fields=None
+        self, force_insert=False, force_update=False, using=None, update_fields=None
     ):
         if not self.stripe_shoes_price_id:
             stripe_shoes_price = self.create_stripe_shoes_price()
@@ -61,7 +61,9 @@ class Shoes(models.Model):
         )
 
     def create_stripe_shoes_price(self):
-        stripe_shoes = stripe.Product.create(name=f'{self.brand} {self.model} {self.color}')
+        stripe_shoes = stripe.Product.create(
+            name=f"{self.brand} {self.model} {self.color}"
+        )
         stripe_shoes_price = stripe.Price.create(
             product=stripe_shoes["id"],
             unit_amount=round(self.price * 100),
@@ -144,8 +146,8 @@ class BasketQuerySet(models.QuerySet):
         line_items = []
         for basket in self:
             item = {
-                'price': basket.shoes.stripe_shoes_price_id,
-                'quantity': basket.quantity
+                "price": basket.shoes.stripe_shoes_price_id,
+                "quantity": basket.quantity,
             }
             line_items.append(item)
         return line_items
@@ -154,7 +156,7 @@ class BasketQuerySet(models.QuerySet):
 class Basket(models.Model):
     """Модель корзины"""
 
-    user = models.ForeignKey(to=User, on_delete=models.PROTECT)
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE)
     shoes = models.ForeignKey(to=Shoes, on_delete=models.PROTECT)
     quantity = models.PositiveSmallIntegerField(verbose_name="Количество")
     created_at = models.DateTimeField(auto_now_add=True)
@@ -170,10 +172,10 @@ class Basket(models.Model):
 
     def de_json(self):
         basket_item = {
-            'product_name': f'{self.shoes.brand} {self.shoes.model} {self.shoes.color}',
-            'quantity': self.quantity,
-            'price': float(self.shoes.price),
-            'summ': float(self.sum_price()),
+            "product_name": f"{self.shoes.brand} {self.shoes.model} {self.shoes.color}",
+            "quantity": self.quantity,
+            "price": float(self.shoes.price),
+            "summ": float(self.sum_price()),
         }
         return basket_item
 

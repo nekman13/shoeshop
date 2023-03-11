@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.decorators.csrf import csrf_exempt
-from django.views.generic import CreateView, TemplateView, ListView
+from django.views.generic import CreateView, DetailView, ListView, TemplateView
 
 from common.views import CommonMixin
 from orders.forms import OrderForm
@@ -95,12 +95,23 @@ def fulfill_order(session):
 
 
 class OrderListView(CommonMixin, ListView):
-    template_name = 'orders/orders.html'
-    title = 'Заказы'
+    template_name = "orders/orders.html"
+    title = "Заказы"
     model = Order
-    context_object_name = 'orders'
+    context_object_name = "orders"
     ordering = ("-created_at",)
 
     def get_queryset(self):
         queryset = super(OrderListView, self).get_queryset()
         return queryset.filter(initiator=self.request.user)
+
+
+class OrderDetailView(DetailView):
+    template_name = "orders/order.html"
+    model = Order
+    context_object_name = "order"
+
+    def get_context_data(self, **kwargs):
+        context = super(OrderDetailView, self).get_context_data(**kwargs)
+        context["title"] = f"Store - Заказ №{self.object.id}"
+        return context
