@@ -17,9 +17,9 @@
 
 {% block content %}
     <div class="">
-        {% if flag == 'filter' and shoes.count != 0 %} {# Если мы отображаем результат фильтрации #}
+        {% if flag == 'filter' and shoes.exists %} {# Если мы отображаем результат фильтрации #}
             <p>По вашему запросу найдено: <b>{{ shoes.count }}</b></p>
-        {% elif flag == 'filter' and shoes.count == 0 %}
+        {% elif flag == 'filter' %}
             <p><h3 class="text-secondary mt-5 "> По вашему запросу ничего не найдено</h3></p>
         {% endif %}
 
@@ -28,24 +28,27 @@
             <p>Всего пар: <b>{{ all_pair.count }}</b></p>
         {% endif %}
 
-        {% if flag == 'search' and shoes.count == 0 %} {# Если мы отображаем результат поиска #}
+
+        {% if flag == 'search' and shoes_count == 0 %} {# Если мы отображаем результат поиска #}
             <p><h3 class="text-secondary mt-5 "> По вашему запросу ничего не найдено</h3></p>
             <p class="text-secondary"> Увы, пока что поиск поддерживается только по одному критерию товара(бренд,
                 модель,
                 расцветка)!!!</p>
-        {% elif  flag == 'search' and shoes.count > 0 %}
-            <p>По вашему запросу найдено: <b>{{ shoes.count }}</b></p>
+        {% elif  flag == 'search' %}
+            <p>По вашему запросу найдено: <b>{{ shoes_count }}</b></p>
         {% endif %}
 
-        {% if flag == 'filter_brand'  and shoes.count == 0 %} {# Если мы отображаем пары определенного бренда #}
+
+        {% if flag == 'filter_brand' and not shoes.exists %} {# Если мы отображаем пары определенного бренда #}
             <h5>Пары выбранного бренда на данный момент отсутствуют на складе..</h5>
-        {% elif flag == 'filter_brand'  and shoes.count != 0 %}
-            <p> Все пары бренда: {{ shoes_brand }}</p>
+        {% elif flag == 'filter_brand' %}
+            <p>{{ title }}</p>
         {% endif %}
 
-        {% if flag == 'filter_gender' and shoes.count == 0 %} {# Если отображаем пары определенного пола #}
+
+        {% if flag == 'filter_gender' and not shoes.exists %} {# Если отображаем пары определенного пола #}
             <h5>Выбранные пары на данный момент отсутствуют на складе..</h5>
-        {% elif flag == 'filter_gender' and shoes.count != 0 %}
+        {% elif flag == 'filter_gender' %}
             <h4>Категория: {{ gender }}</h4>
         {% endif %}
 
@@ -58,11 +61,11 @@
             <div class="card-body card mt-2 mb-4">
                 {% if item.photo %}
                     <a href="{% url 'shoes:one_pair_view' item.pk %}">
-                        <img src="{{ item.photo.url }}" , width="350">
+                        <img src="{{ item.photo.url }}" width="350">
                     </a>
                 {% else %}
                     <img src="https://avatars.mds.yandex.net/i?id=bcb66a4b38e66b9bed06d8af2c2e6e41-5235777-images-thumbs&n=13"
-                         , width="300">
+                         width="300">
                 {% endif %}
                 <h4><a class="text-dark text-decoration-none"
                        href="{% url 'shoes:one_pair_view' item.pk %}">{{ item.brand }}</a></h4>

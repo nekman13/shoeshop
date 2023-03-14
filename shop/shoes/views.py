@@ -71,16 +71,12 @@ class GetCategoryBrand(CommonMixin, ListView):
         context[
             "title"
         ] = f'Пары: {CategoryBrand.objects.get(pk=self.kwargs["category_brand_id"])}'
-        context["shoes_brand"] = CategoryBrand.objects.get(
-            pk=self.kwargs["category_brand_id"]
-        )
         return context
 
     def get_queryset(self):
-        return Shoes.objects.filter(
-            category_brand_id=self.kwargs["category_brand_id"]
-        ).select_related("category_brand")
-        # return CategoryBrand.objects.get(pk=self.kwargs["category_brand_id"]).shoes_set.all()
+        return CategoryBrand.objects.get(
+            pk=self.kwargs["category_brand_id"]
+        ).shoes_set.all()
 
 
 class GetCategoryGender(CommonMixin, ListView):
@@ -104,9 +100,7 @@ class GetCategoryGender(CommonMixin, ListView):
     def get_queryset(self):
         queryset = super(GetCategoryGender, self).get_queryset()
         category_gender_id = self.kwargs["category_gender_id"]
-        return queryset.filter(
-            Q(category_gender_id=category_gender_id) | Q(category_gender_id=3)
-        )
+        return queryset.filter(category_gender_id__in=(category_gender_id, 3))
 
 
 class FilterView(CommonMixin, ListView):
@@ -162,4 +156,5 @@ class Search(CommonMixin, ListView):
         context = super(Search, self).get_context_data(**kwargs)
         context["request_search"] = self.request.GET.get("request_search")
         context["shoes"] = search_request_filter(search_request)
+        context["shoes_count"] = context["shoes"].count()
         return context

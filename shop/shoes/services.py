@@ -55,7 +55,7 @@ def filter_pairs(
     if max_price == "":
         max_price = Shoes.objects.aggregate(Max("price"))["price__max"]
 
-    return Shoes.objects.filter(
+    queryset = Shoes.objects.filter(
         Q(category_brand_id__in=lst_category_brand)
         & Q(category_color_id__in=lst_category_color)
         & Q(category_gender_id__in=lst_category_gender)
@@ -63,6 +63,8 @@ def filter_pairs(
         & Q(price__gte=min_price)
         & Q(price__lte=max_price)
     ).distinct()
+
+    return queryset
 
 
 def search_request_filter(search_request):
