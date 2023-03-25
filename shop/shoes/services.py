@@ -2,14 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Max, Min, Q
 from django.shortcuts import redirect
 
-from shoes.models import (
-    Basket,
-    CategoryBrand,
-    CategoryColor,
-    CategoryGender,
-    CategorySize,
-    Shoes,
-)
+from shoes.models import (Basket, CategoryBrand, CategoryColor, CategoryGender,
+                          CategorySize, Shoes)
 
 
 @login_required()

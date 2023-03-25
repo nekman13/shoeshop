@@ -1,0 +1,17 @@
+Django==4.1.6
+Pillow==9.4.0
+
+django-environ==0.10.0
+django-extensions==3.2.1
+django_debug_toolbar==3.8.1
+
+black==23.1.0
+flake8==6.0.0
+isort==5.12.0
+
+redis==4.5.1
+celery==5.2.7
+stripe==5.2.0
+
+psycopg2==2.9.5
+sqlparse==0.4.3
