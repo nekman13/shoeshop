@@ -66,17 +66,17 @@ class GetCategoryBrand(CommonMixin, ListView):
 
     flag = "filter_brand"
 
+    def get_queryset(self):
+        return CategoryBrand.objects.get(
+            pk=self.kwargs["category_brand_id"]
+        ).shoes_set.all()
+
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(GetCategoryBrand, self).get_context_data(**kwargs)
         context[
             "title"
         ] = f'Пары: {CategoryBrand.objects.get(pk=self.kwargs["category_brand_id"])}'
         return context
-
-    def get_queryset(self):
-        return CategoryBrand.objects.get(
-            pk=self.kwargs["category_brand_id"]
-        ).shoes_set.all()
 
 
 class GetCategoryGender(CommonMixin, ListView):
